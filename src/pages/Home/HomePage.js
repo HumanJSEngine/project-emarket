@@ -1,7 +1,17 @@
+/** @format */
+
+import { Hero } from './components/Hero';
+import { FeaturedProduct } from './components/FeaturedProduct';
+import { Testimonials } from './components/Testimonials';
+import {Faq} from './components/Faq';
+
 export const HomePage = () => {
-  return(
+  return (
     <main>
-      <div>Home</div>
+      <Hero />
+      <FeaturedProduct />
+      <Testimonials />
+      <Faq/>
     </main>
-  )
-}
+  );
+};
