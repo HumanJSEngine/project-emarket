@@ -1,6 +1,6 @@
 /** @format */
 import { useState, useEffect } from 'react';
-import { ProductCard } from '../../../components/Elements/ProductCard';
+import { ProductCard } from '../../../components';
 import axios from 'axios';
 export const FeaturedProduct = () => {
   const [products, setProducts] = useState([]);

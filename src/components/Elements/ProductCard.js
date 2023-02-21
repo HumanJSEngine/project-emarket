@@ -1,6 +1,7 @@
 /** @format */
 
 import { Link } from 'react-router-dom';
+import { Rating } from './Rating';
 
 export const ProductCard = ({ product }) => {
   const {
@@ -37,11 +38,7 @@ export const ProductCard = ({ product }) => {
         </Link>
         <p className="mb-3 font-normal text-gray-700">{overview}</p>
         <div className="flex items-center my-2">
-          <i className="text-lg bi bi-star-fill text-yellow-300 mr-1"></i>
-          <i className="text-lg bi bi-star-fill text-yellow-300 mr-1"></i>
-          <i className="text-lg bi bi-star-fill text-yellow-300 mr-1"></i>
-          <i className="text-lg bi bi-star-fill text-yellow-300 mr-1"></i>
-          <i className="text-lg bi bi-star text-yellow-300 mr-1"></i>
+          <Rating rating={rating}/>
         </div>
         <p className="flex justify-between items-center">
           <span className="text-2xl dark:text-gray-200">

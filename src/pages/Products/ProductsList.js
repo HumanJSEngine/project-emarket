@@ -1,12 +1,13 @@
 /** @format */
-import { ProductCard } from '../../components/Elements/ProductCard';
+import { ProductCard } from '../../components/';
 import { FilterBar } from './components/FilterBar';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import data from '../../data/db.json';
 
 export const ProductsList = () => {
   const [show, setShow] = useState(false);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(data.products);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -42,7 +43,7 @@ export const ProductsList = () => {
         </div>
         <div className="flex flex-wrap justify-center lg:flex-row">
           {products.map((product) => (
-            <ProductCard key={product.id}product={product} />
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </section>
