@@ -2,12 +2,10 @@
 
 import { AllRoutes } from './routes/AllRoutes';
 import { Header, Footer } from './components';
-import { ThemeProvider } from 'styled-components';
-import { Globalstyle } from './theme/GlobalStyle';
 
 function App() {
     return (
-        <div className='App dark:bg-dark'>
+        <div className='App dark:bg-dark:bg-slate-500'>
             <Header />
             <AllRoutes />
             <Footer />

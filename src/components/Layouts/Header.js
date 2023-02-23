@@ -1,17 +1,21 @@
 /** @format */
 import Logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTheme } from '../../context/ThemeProvider';
 import ThemeToggle from '../Elements/ThemeToggle';
+
 export const Header = () => {
     const [darkMode, setDarkMode] = useState(false);
     const [ThemeMode, toggleTheme] = useTheme();
-    // useEffect(() => {
-    //     if (darkMode) {
-    //     } else {
-    //     }
-    // }, [darkMode]);
+    useEffect(() => {
+        if (darkMode) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    }, [darkMode]);
+
     return (
         <header>
             <nav className='bg-white border-gray-200 dark:bg-gray-900'>
