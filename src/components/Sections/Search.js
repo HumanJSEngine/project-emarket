@@ -10,7 +10,6 @@ export const Search = () => {
         <div className="relative w-full">
           <span className="bi bi-search flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"></span>
           <input
-            ref={searchRef}
             name="search"
             type="text"
             id="simple-search"

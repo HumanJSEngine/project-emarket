@@ -4,10 +4,13 @@ import { FilterBar } from './components/FilterBar';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import data from '../../data/db.json';
+import { useLocation } from 'react-router-dom';
 
 export const ProductsList = () => {
   const [show, setShow] = useState(false);
   const [products, setProducts] = useState(data.products);
+  const search = useLocation();
+  console.log(search);
 
   useEffect(() => {
     const fetchProducts = async () => {
