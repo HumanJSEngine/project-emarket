@@ -6,12 +6,11 @@ import { Rating } from './Rating';
 export const ProductCard = ({ product }) => {
     const { id, name, overview, image_local, price, rating, best_seller } =
         product;
-    console.log(best_seller);
     return (
         <div className='m-3 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'>
             <Link to={`products/${id}`} className='relative'>
                 {best_seller && (
-                    <span className='absolute top-4 left-2 px-2 bg-orange-500 bg-opacity-90 text-white rounded'>
+                    <span className='absolute top-4 left-2 px-2 bg-orange-500 bg-opacity-50 text-white rounded'>
                         베스트셀러
                     </span>
                 )}

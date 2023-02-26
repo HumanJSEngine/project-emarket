@@ -4,8 +4,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import data from '../data/db.json';
 import { useParams } from 'react-router-dom';
+import { useTitle } from '../hooks/useTitle';
 
 export const ProductDetail = () => {
+    useTitle('배민준')
     const [product, setProducts] = useState({});
     console.log('프로덕트', product);
     const { id } = useParams();

@@ -49,7 +49,7 @@ export const Header = () => {
           </div>
         </div>
       </nav>
-      {search && <Search />}
+      {search && <Search setSearch={setSearch} />}
       <ThemeToggle toggle={toggleTheme} mode={ThemeMode}>
         DarkMode
       </ThemeToggle>

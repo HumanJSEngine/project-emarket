@@ -5,17 +5,25 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import data from '../../data/db.json';
 import { useLocation } from 'react-router-dom';
+import { useTitle } from '../../hooks/useTitle';
 
 export const ProductsList = () => {
+  useTitle('배민준')
   const [show, setShow] = useState(false);
-  const [products, setProducts] = useState(data.products);
-  const search = useLocation();
-  console.log(search);
+  const [products, setProducts] = useState([]);
+  const search = useLocation().search;
+  const searchTerm = new URLSearchParams(search).get('title');
+  console.log('서치', search);
+  console.log('서치텀', searchTerm);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const result = await axios.get('http://localhost:8000/products');
+        const result = await axios.get(
+          `http://localhost:8000/products?name_like=${
+            searchTerm ? searchTerm : ''
+          }`
+        );
         setProducts(result.data);
       } catch (error) {
         console.log(error);
@@ -38,9 +46,7 @@ export const ProductsList = () => {
               className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-gray-100 rounded-lg hover:bg-gray-200 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-700"
               type="button"
             >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path>
-              </svg>
+              <svg className="w-6 h-6" fill="currentColor"></svg>
             </button>
           </span>
         </div>
