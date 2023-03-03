@@ -9,14 +9,17 @@ import App from './App';
 
 import { Globalstyle } from './theme/GlobalStyle';
 import { ThemeProvider } from './context/ThemeProvider';
+import { FilterProvider } from './context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Router>
-        <ThemeProvider>
-            <Globalstyle />
-            <ScrollToTop />
-            <App />
-        </ThemeProvider>
+        <FilterProvider>
+            <ThemeProvider>
+                <Globalstyle />
+                <ScrollToTop />
+                <App />
+            </ThemeProvider>
+        </FilterProvider>
     </Router>
 );
