@@ -1,6 +1,8 @@
-/** @format */
-
+import { useFilter } from '../../../context';
 export const FilterBar = ({ setShow }) => {
+    const { state, dispatch } = useFilter();
+
+    console.log('스테이트값', state);
     return (
         <section className='filter'>
             <div
@@ -25,18 +27,26 @@ export const FilterBar = ({ setShow }) => {
                         fill='currentColor'
                         viewBox='0 0 20 20'
                     >
-                        <path fillRule='evenodd' clipRule='evenodd'></path>
+                        <path fillRule='evenodd'></path>
                     </svg>
-                    <span className='sr-only'>Close Filters</span>
+                    닫기
                 </button>
                 <div className='border-b pb-3'></div>
                 <div className='py-4 overflow-y-auto'>
                     <ul className='text-slate-700 dark:text-slate-100'>
                         <li className='mt-1 mb-5'>
-                            <p className='font-semibold my-1'>Sort by</p>
+                            <p className='font-semibold my-1'>분류별</p>
                             <div className='flex items-center my-1'>
                                 <input
-                                    checked='false'
+                                    onChange={() =>
+                                        dispatch({
+                                            type: 'SORT_BY',
+                                            payload: { sortBy: 'lowtohigh' },
+                                        })
+                                    }
+                                    checked={
+                                        state.sortBy === 'lowtohigh' || false
+                                    }
                                     id='price-sort-1'
                                     type='radio'
                                     value=''
@@ -47,12 +57,20 @@ export const FilterBar = ({ setShow }) => {
                                     htmlFor='price-sort-1'
                                     className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
                                 >
-                                    Price - Low to High
+                                    저가순
                                 </label>
                             </div>
                             <div className='flex items-center my-1'>
                                 <input
-                                    checked='false'
+                                    onChange={() =>
+                                        dispatch({
+                                            type: 'SORT_BY',
+                                            payload: { sortBy: 'hightolow' },
+                                        })
+                                    }
+                                    checked={
+                                        state.sortBy === 'hightolow' || false
+                                    }
                                     id='price-sort-2'
                                     type='radio'
                                     value=''
@@ -63,7 +81,7 @@ export const FilterBar = ({ setShow }) => {
                                     htmlFor='price-sort-2'
                                     className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
                                 >
-                                    Price - High to Low
+                                    고가순
                                 </label>
                             </div>
                         </li>
@@ -71,7 +89,15 @@ export const FilterBar = ({ setShow }) => {
                             <span className='font-semibold'>Rating</span>
                             <div className='flex items-center my-1'>
                                 <input
-                                    checked='false'
+                                    onChange={() =>
+                                        dispatch({
+                                            type: 'RATINGS',
+                                            payload: { ratings: '4STARSABOVE' },
+                                        })
+                                    }
+                                    checked={
+                                        state.ratings === '4STARSABOVE' || false
+                                    }
                                     id='rating-sort-1'
                                     type='radio'
                                     value=''
@@ -82,12 +108,20 @@ export const FilterBar = ({ setShow }) => {
                                     htmlFor='rating-sort-1'
                                     className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
                                 >
-                                    4 Stars & Above
+                                    4별
                                 </label>
                             </div>
                             <div className='flex items-center my-1'>
                                 <input
-                                    checked='false'
+                                    onChange={() =>
+                                        dispatch({
+                                            type: 'RATINGS',
+                                            payload: { ratings: '3STARSABOVE' },
+                                        })
+                                    }
+                                    checked={
+                                        state.ratings === '3STARSABOVE' || false
+                                    }
                                     id='rating-sort-2'
                                     type='radio'
                                     value=''
@@ -98,12 +132,20 @@ export const FilterBar = ({ setShow }) => {
                                     htmlFor='rating-sort-2'
                                     className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
                                 >
-                                    3 Stars & Above
+                                    3별
                                 </label>
                             </div>
                             <div className='flex items-center my-1'>
                                 <input
-                                    checked='false'
+                                    onChange={() =>
+                                        dispatch({
+                                            type: 'RATINGS',
+                                            payload: { ratings: '2STARSABOVE' },
+                                        })
+                                    }
+                                    checked={
+                                        state.ratings === '2STARSABOVE' || false
+                                    }
                                     id='rating-sort-3'
                                     type='radio'
                                     value=''
@@ -114,12 +156,20 @@ export const FilterBar = ({ setShow }) => {
                                     htmlFor='rating-sort-3'
                                     className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
                                 >
-                                    2 Stars & Above
+                                    2별
                                 </label>
                             </div>
                             <div className='flex items-center my-1'>
                                 <input
-                                    checked='true'
+                                    onChange={() =>
+                                        dispatch({
+                                            type: 'RATINGS',
+                                            payload: { ratings: '1STARSABOVE' },
+                                        })
+                                    }
+                                    checked={
+                                        state.ratings === '1STARSABOVE' || false
+                                    }
                                     id='rating-sort-4'
                                     type='radio'
                                     value=''
@@ -130,7 +180,7 @@ export const FilterBar = ({ setShow }) => {
                                     htmlFor='rating-sort-4'
                                     className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
                                 >
-                                    1 Stars & Above
+                                    1별
                                 </label>
                             </div>
                         </li>
@@ -138,7 +188,16 @@ export const FilterBar = ({ setShow }) => {
                             <span className='font-semibold'>Other Filters</span>
                             <div className='flex items-center my-1'>
                                 <input
-                                    checked='false'
+                                    onChange={() =>
+                                        dispatch({
+                                            type: 'BEST_SELLER_ONLY',
+                                            payload: {
+                                                bestSellerOnly:
+                                                    !state.bestSellerOnly,
+                                            },
+                                        })
+                                    }
+                                    checked={state.bestSellerOnly || false}
                                     id='best-seller'
                                     type='checkbox'
                                     value=''
@@ -148,12 +207,20 @@ export const FilterBar = ({ setShow }) => {
                                     htmlFor='best-seller'
                                     className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
                                 >
-                                    Best Seller Only
+                                    베스트셀러만
                                 </label>
                             </div>
                             <div className='flex items-center my-1'>
                                 <input
-                                    checked='false'
+                                    onChange={() =>
+                                        dispatch({
+                                            type: 'ONLY_IN_STOCK',
+                                            payload: {
+                                                onlyInStock: !state.onlyInStock,
+                                            },
+                                        })
+                                    }
+                                    checked={state.onlyInStock || false}
                                     id='only-instock'
                                     type='checkbox'
                                     value=''
@@ -163,7 +230,7 @@ export const FilterBar = ({ setShow }) => {
                                     htmlFor='only-instock'
                                     className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
                                 >
-                                    INSTOCK Only
+                                    재고있음
                                 </label>
                             </div>
                         </li>
@@ -172,7 +239,7 @@ export const FilterBar = ({ setShow }) => {
                                 type='button'
                                 className='text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700'
                             >
-                                Clear Filter
+                                필터 초기화
                             </button>
                         </li>
                     </ul>

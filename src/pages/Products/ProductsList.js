@@ -3,16 +3,14 @@ import { ProductCard } from '../../components/';
 import { FilterBar } from './components/FilterBar';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import data from '../../data/db.json';
 import { useLocation } from 'react-router-dom';
 import { useTitle } from '../../hooks/useTitle';
 import { useFilter } from '../../context';
 
 export const ProductsList = () => {
-    // const { productList, onlyInStock } = useFilter();
+    const { products, initialProductList } = useFilter();
 
     const [show, setShow] = useState(false);
-    const [products, setProducts] = useState([]);
     const search = useLocation().search;
     const searchTerm = new URLSearchParams(search).get('title');
     console.log('서치', search);
@@ -27,13 +25,14 @@ export const ProductsList = () => {
                         searchTerm ? searchTerm : ''
                     }`
                 );
-                setProducts(result.data);
+                initialProductList(result.data);
             } catch (error) {
                 console.log(error);
             }
         };
         fetchProducts();
-    }, []);
+    }, [searchTerm]);
+
     return (
         <main>
             <section className='my-5'>
