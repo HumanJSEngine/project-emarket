@@ -1,10 +1,11 @@
 /** @format */
+import { Link } from "react-router-dom";
 
-export const DropdownLoggedOut = () => {
+export const DropDownLoggedOut = () => {
   return (
     <div
       id="dropdownAvatar"
-      className="select-none	absolute top-10 right-0 z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+      className="select-none absolute top-10 right-0 z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
     >
       <ul
         className="py-1 text-sm text-gray-700 dark:text-gray-200"
@@ -12,29 +13,26 @@ export const DropdownLoggedOut = () => {
       >
         <li>
           <Link
-            onClick={() => setDropdown(false)}
             to="/products"
             className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
           >
-            All eBooks
+           전체 책
           </Link>
         </li>
         <li>
           <Link
-            onClick={() => setDropdown(false)}
             to="/login"
             className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
           >
-            Login
+            로그인
           </Link>
         </li>
         <li>
-          <Link
-            onClick={() => setDropdown(false)}
+          <Link 
             to="/register"
             className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
           >
-            Register
+            회원등록
           </Link>
         </li>
       </ul>

@@ -5,11 +5,13 @@ import React, { useState, useEffect } from 'react';
 import { useTheme } from '../../context/ThemeProvider';
 import ThemeToggle from '../Elements/ThemeToggle';
 import { Search } from '../Sections/Search';
+import { DropDownLoggedOut, DropDownLoggedIn } from '../index';
 
 export const Header = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [search, setSearch] = useState(false);
   const [ThemeMode, toggleTheme] = useTheme();
+  const [dropdown, setDropdown] = useState(false);
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
@@ -45,7 +47,10 @@ export const Header = () => {
               </span>
             </Link>
 
-            <span className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi-person-heart"></span>
+            <span
+              onClick={() => setDropdown(!dropdown)}
+              className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi-person-heart"
+            ></span>
           </div>
         </div>
       </nav>
@@ -53,6 +58,7 @@ export const Header = () => {
       <ThemeToggle toggle={toggleTheme} mode={ThemeMode}>
         DarkMode
       </ThemeToggle>
+      {dropdown && <DropDownLoggedOut />}
     </header>
   );
 };
