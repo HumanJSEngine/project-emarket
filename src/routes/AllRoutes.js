@@ -3,7 +3,13 @@
 import React from 'react';
 
 import { Routes, Route } from 'react-router-dom';
-import { HomePage, ProductsList, ProductDetail } from '../pages';
+import {
+    HomePage,
+    ProductsList,
+    ProductDetail,
+    Register,
+    Login,
+} from '../pages';
 import CartPage from '../pages/Cart/CartPage';
 export const AllRoutes = () => {
     return (
@@ -11,8 +17,10 @@ export const AllRoutes = () => {
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/products' element={<ProductsList />} />
-                <Route path='/cart' element={<CartPage />} />
                 <Route path='/products/:id' element={<ProductDetail />} />
+                <Route path='/cart' element={<CartPage />} /> 
+                <Route path='/login' element={<Login />} />
+                <Route path='/register' element={<Register />} />
             </Routes>
         </>
     );
