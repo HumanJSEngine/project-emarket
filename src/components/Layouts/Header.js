@@ -12,6 +12,8 @@ export const Header = () => {
   const [search, setSearch] = useState(false);
   const [ThemeMode, toggleTheme] = useTheme();
   const [dropdown, setDropdown] = useState(false);
+  const token = JSON.parse(sessionStorage.getItem('token'));
+
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
@@ -58,7 +60,7 @@ export const Header = () => {
       <ThemeToggle toggle={toggleTheme} mode={ThemeMode}>
         DarkMode
       </ThemeToggle>
-      {dropdown && <DropDownLoggedOut />}
+      {dropdown && (token ? <DropDownLoggedIn /> : <DropDownLoggedOut />)}
     </header>
   );
 };

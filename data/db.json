@@ -266,10 +266,16 @@
   "orders": [],
   "users": [
     {
-      "email": "shubham@example.com",
+      "email": "test1@example.com",
       "password": "$2a$10$wasUbhu2tUwpEbaRzZP0TOo4jh/VyjjxXsqjvGzYqSIm8PhMF6vVC",
-      "name": "Shubham sarda",
+      "name": "test1",
       "id": 1
+    },
+    {
+      "email": "bmj1390@naver.com",
+      "password": "$2a$10$.4eUca4f0r/TDxGGkXSc5.7TrLqNzXsmYrUy8BSTqrs378CjV2MNW",
+      "name": "bmj1390",
+      "id": 2
     }
   ]
 }
