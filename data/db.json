@@ -276,6 +276,24 @@
       "password": "$2a$10$.4eUca4f0r/TDxGGkXSc5.7TrLqNzXsmYrUy8BSTqrs378CjV2MNW",
       "name": "bmj1390",
       "id": 2
+    },
+    {
+      "email": "test1234@gmail.com",
+      "password": "$2a$10$ICDUqonTsyPE1sZ80Dj.neYY.7DOGKhQ6IEUIWtag3yHNSvNbABvS",
+      "name": "배민준",
+      "id": 3
+    },
+    {
+      "email": "test12345@gmail.com",
+      "password": "$2a$10$yumaXKFxd040ORdH0SS4w.WMEFqmd9FF4pcnjQVaYOb.rXQVooyGK",
+      "name": "BMJ2",
+      "id": 4
+    },
+    {
+      "email": "test4321@gmail.com",
+      "password": "$2a$10$fAfpNdstFYRwcLZ4pWUkpOKoVT164nQsXxHxiHfPFGaU.dRJWQaha",
+      "name": "bmj2",
+      "id": 5
     }
   ]
 }

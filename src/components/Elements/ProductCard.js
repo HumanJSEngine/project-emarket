@@ -44,13 +44,17 @@ export const ProductCard = ({ product }) => {
         />
       </Link>
       <div className="relative p-5">
-        <Link to={`products/${id}`}>
+        <Link to={`/products/${id}`}>
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
             {name}
           </h5>
-          {in_stock && (
+          {in_stock ? (
             <span className="absolute top-6 right-3 px-2 bg-orange-500 bg-opacity-50 text-white rounded">
               재고있음
+            </span>
+          ) : (
+            <span className="absolute top-6 right-3 px-2 bg-orange-500 bg-opacity-50 text-white rounded">
+              재고없음
             </span>
           )}
         </Link>
