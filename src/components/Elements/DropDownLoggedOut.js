@@ -1,7 +1,7 @@
 /** @format */
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-export const DropDownLoggedOut = () => {
+export const DropDownLoggedOut = ({ setDropdown }) => {
   return (
     <div
       id="dropdownAvatar"
@@ -13,14 +13,16 @@ export const DropDownLoggedOut = () => {
       >
         <li>
           <Link
+            onClick={() => setDropdown(false)}
             to="/products"
             className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
           >
-           전체 책
+            전체 책
           </Link>
         </li>
         <li>
           <Link
+            onClick={() => setDropdown(false)}
             to="/login"
             className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
           >
@@ -28,7 +30,8 @@ export const DropDownLoggedOut = () => {
           </Link>
         </li>
         <li>
-          <Link 
+          <Link
+            onClick={() => setDropdown(false)}
             to="/register"
             className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
           >

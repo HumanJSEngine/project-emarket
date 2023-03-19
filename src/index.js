@@ -12,22 +12,24 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { Globalstyle } from './theme/GlobalStyle';
 import { ThemeProvider } from './context/ThemeProvider';
-import { FilterProvider } from './context';
+import { FilterProvider, CartProvider } from './context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router>
-    <FilterProvider>
-      <ThemeProvider>
-        <Globalstyle />
-        <ScrollToTop />
-        <ToastContainer
-          closeButton={true}
-          autoClose={5000}
-          position={'bottom-center'}
-        />
-        <App />
-      </ThemeProvider>
-    </FilterProvider>
+    <CartProvider>
+      <FilterProvider>
+        <ThemeProvider>
+          <Globalstyle />
+          <ScrollToTop />
+          <ToastContainer
+            closeButton={true}
+            autoClose={5000}
+            position={'bottom-center'}
+          />
+          <App />
+        </ThemeProvider>
+      </FilterProvider>
+    </CartProvider>
   </Router>
 );
